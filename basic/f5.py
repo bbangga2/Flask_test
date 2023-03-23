@@ -35,7 +35,7 @@ app = Flask(__name__)
 def login():
     # method 별 분기
     if request.method == 'GET':
-        return "helloworld"
+        return render_template('login.html')
     else: #post
         # request.form['uid'] #값이 누락되면 서버 셧다운이 된다. 사용 금지
         # 1. 로그인 정보 획득 
