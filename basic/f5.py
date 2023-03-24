@@ -42,12 +42,13 @@ def login():
         uid = request.form.get('uid')
         upw = request.form.get('upw')  # 암호는 차후에 암호화 해야 한다(관리자도 볼 수 없다)
         # 2. 회원 여부 쿼리
-        return redirect('https://www.naver.com') # 요청을 다른 url로 포워딩
+        from d4 import select_login # 모듈 가져오기 코드는 어디든 짜도 된다.  
+        select_login()
         # 3. 회원이면
             # 3-1. 세션 생성, 기타 필요한 조치 수행
             # 3-2. 서비스 메인 화면으로 이동
         # 4. 회원 아니면
             # 4-1. 적당한 메시지 후 다시 로그인 유도
-
+        return redirect('https://www.naver.com') # 요청을 다른 url로 포워딩
 if __name__=='__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
